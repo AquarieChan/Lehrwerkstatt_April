@@ -10,5 +10,9 @@
 </div>
 
 <style>
+    *{
+        max-width: 70%;
+        margin: auto;
+    }
 
 </style>

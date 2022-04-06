@@ -10,18 +10,24 @@
     let minChar = 10;
     let message = "";
     let rating = 10;
- 
+    
     const onSubmit = ()=> {
         $FeedbackStore = [
             {id:uuiv4(), text, rating:+rating},
             ...$FeedbackStore
-        ];
+        ]
+        console.log(rating)
+        
+        console.log(text)
+        
+        //localStorage.setItem("feedbacks", JSON.stringify($FeedbackStore));
         text = "";
         rating = 10;
         btnDisabeld = true;
     };
     const onInput = ()=> {
         console.log("onInput check")
+        
         if (text.trim().length<= minChar){
             message = "Text must have atleast 10 Char";
             btnDisabeld = true;
@@ -35,6 +41,7 @@
         rating = ev.detail.rating;
 
     }
+   
 </script>
 
 <Card>
@@ -45,6 +52,9 @@
     </header>
     <form on:submit|preventDefault={onSubmit}>
         <RatingSelect on:rating-select={onRatingSelect} />
+        <div>
+            {message}
+        </div>
         <div class="input-group">
             <input bind:value={text}
                     type="text"
@@ -83,6 +93,6 @@
     }
     .input-group input:focus {
         outline: none;
-        
+
     }
 </style>

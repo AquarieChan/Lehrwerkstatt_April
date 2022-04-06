@@ -8,7 +8,7 @@
 
     const onChange = (ev) => {
         let rating = ev.target.value;
-        console.log(rating);
+        //console.log(rating);
         dispatch("rating-select", {rating})
     }
    
